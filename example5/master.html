@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      <meta name="author" content="">
+      <meta name="description" content="React.js Demo">
+      <title>React.js Demo</title>
+
+
+      <!-- Latest compiled and minified CSS -->
+      <link rel="stylesheet" href="../stylesheets/bootstrap.min.css">
+      <!-- Optional theme -->
+      <link rel="stylesheet" href="../stylesheets/bootstrap-theme.min.css">
+      <link rel='stylesheet' href="../stylesheets/style.css" />
+
+
+      <script src="../javascripts/react.min.js"></script>
+      <script src="../javascripts/react-dom.min.js"></script>
+      <script src="../javascripts/babel.min.js"></script>
+  </head>
+  <body>
+      <div id="react"></div>
+      <div id="container"></div>
+
+      <script type="text/babel">
+          //Rendering Elements
+          ReactDOM.render(
+              <img src="../images/reactjs-fundamentals.png" width="480" height="270" />,
+              document.getElementById('react')
+          );
+      </script>
+
+      <script type="text/babel">
+          let Games = React.createClass({
+              //=========================
+              getInitialState: function () {
+                  return {
+                      editing: false
+                  }
+              },
+
+              edit: function () {
+                  this.setState({
+                      editing: true
+                  });
+              },
+
+              remove: function () {
+                  console.log('Removing Comment');
+              },
+
+              save: function () {
+                  var value = this.refs.newText.value;
+                  console.log('New Comment: ' + value);
+
+                  this.setState({
+                      editing: false
+                  });
+              },
+
+              renderNormal: function () {
+                  return (
+                          <div className="list-group-item">
+                              <div className="alert alert-info">{this.props.children}</div>
+                              <button onClick={this.edit} className="bg-primary">Edit</button>
+                              <button onClick={this.remove} className="bg-danger">Delete</button>
+                          </div>
+                  );
+              },
+
+              renderForm: function () {
+                  return (
+                          <div className="list-group-item">
+                              <textarea ref="newText" defaultValue={this.props.children}></textarea>
+                              <button onClick={this.save} className="bg-success">Save</button>
+                          </div>
+                  );
+              },
+
+              render: function () {
+                  if(this.state.editing){
+                      return this.renderForm();
+                  } else {
+                      return this.renderNormal();
+                  }
+              }
+          });
+
+          ReactDOM.render(
+              <div className="list-group">
+                  <Games>Civilization</Games>
+                  <Games>Monster Hunter</Games>
+                  <Games>Grass Simulator</Games>
+              </div>
+              , document.getElementById('container')
+          );
+      </script>
+  </body>
+</html>

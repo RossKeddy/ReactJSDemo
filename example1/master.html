@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+  <head>
+	<meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<meta name="author" content="">
+	<meta name="description" content="React.js Demo">
+    <title>React.js Demo</title>
+	
+	
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="../stylesheets/bootstrap.min.css">
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="../stylesheets/bootstrap-theme.min.css">
+    <link rel='stylesheet' href="../stylesheets/style.css" />
+
+
+    <script src="../javascripts/react.min.js"></script>
+    <script src="../javascripts/react-dom.min.js"></script>
+    <script src="../javascripts/babel.min.js"></script>
+  </head>
+  <body>
+      <div id="react"></div>
+      <div id="hello"></div>
+
+      <script type="text/babel">
+          //Rendering Elements
+          ReactDOM.render(
+              <img src="../images/reactjs-fundamentals.png" width="480" height="270" />,
+              document.getElementById('react')
+          );
+      </script>
+
+      <script type="text/babel">
+          //Components
+          let Hello = React.createClass({
+              render: function () {
+                  return (
+                          <h2>This is a component!</h2>
+                  );
+              }
+          });
+
+          ReactDOM.render(
+                  <Hello />,
+              document.getElementById('hello')
+          );
+      </script>
+
+      <!--<script type="text/babel">
+          //Multiple Components
+          let Hello = React.createClass({
+              render: function () {
+                  return (
+                          <div>
+                              <h2>This is a component!</h2>
+                              <p>Bring out the brownies!</p>
+                          </div>
+                  );
+              }
+          });
+
+          ReactDOM.render(
+                  <div>
+                      <Hello />
+                      <Hello />
+                      <Hello />
+                  </div>,
+              document.getElementById('hello')
+          );
+      </script>-->
+  </body>
+</html>

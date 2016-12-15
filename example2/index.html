@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <meta name="author" content="">
+        <meta name="description" content="React.js Demo">
+        <title>React.js is Wicked!</title>
+
+
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="../stylesheets/bootstrap.min.css">
+        <!-- Optional theme -->
+        <link rel="stylesheet" href="../stylesheets/bootstrap-theme.min.css">
+        <link rel='stylesheet' href="../stylesheets/style.css" />
+
+
+        <!-- Required React.js Files -->
+        <script src="../javascripts/react.min.js"></script>
+        <script src="../javascripts/react-dom.min.js"></script>
+        <script src="../javascripts/babel.min.js"></script>
+    </head>
+    <body>
+        <div id="react"></div>
+
+        <script type="text/babel">
+            //Rendering Elements
+            ReactDOM.render(
+                    <img src="../images/reactjs-fundamentals.png" width="480" height="270" />,
+                document.getElementById('react')
+            );
+        </script>
+
+
+
+    </body>
+</html>
